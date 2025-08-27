@@ -1,5 +1,5 @@
 from google.cloud import bigquery
-
+#testing for ci/cd testing
 RAW_TABLE_ID = "all-vax.all_vax.all-vax-raw"  # project.dataset.table
 
 def truncate_raw_table():
