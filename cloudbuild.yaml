@@ -1,0 +1,21 @@
+steps:
+  # Step 1: Upload DAG files to Composer DAGs folder
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Uploading DAGs to Composer bucket..."
+        gsutil cp dags/*.py gs://us-central1-all-vax-auto-ai-c649b695-bucket/dags/
+
+  # Step 2: Upload Python helper scripts to Composer DAGs folder too (Airflow reads everything here)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Uploading support scripts to Composer bucket..."
+        gsutil cp scripts/*.py gs://us-central1-all-vax-auto-ai-c649b695-bucket/dags/
+
+options:
+  logging: CLOUD_LOGGING_ONLY
