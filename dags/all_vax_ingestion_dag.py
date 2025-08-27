@@ -5,6 +5,7 @@ import os
 import sys
 
 # Add DAG folder to import helper scripts
+#add ci/cd comment for testing
 sys.path.append(os.path.dirname(__file__))
 
 from load_raw_to_bq import main as load_raw_to_bq_main
